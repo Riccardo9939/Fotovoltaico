@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuratore Preventivo | ImpiantoFotovoltaicoSemplice.it</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<style>
+        textarea::placeholder {
+            color: #a0aec0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body class="bg-[#fdfdfd] text-[#333333] font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <header class="bg-white border-b border-[#e5e7eb] py-1">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="text-xl font-extrabold tracking-tight text-[#111827] flex items-center gap-0">
+                <img src="logo-fotovoltaico.png" alt="Logo" class="w-14 h-14" />
+                <span>Impianto Fotovoltaico <span class="text-[#51b86d]">Semplice</span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center py-12 px-4">
+        <div class="w-full max-w-2xl bg-white rounded-xl shadow-sm border border-[#e5e7eb] overflow-hidden">
+            <div class="w-full bg-gray-100 h-1.5 relative">
+                <div id="progressBar" class="bg-[#3b82f6] h-full transition-all duration-300" style="width: 15%;"></div>
+            </div>
+
+            <div class="p-8 md:p-12">
+                <div id="step-1" class="block">
+                    <h2 class="text-xl md:text-2xl font-bold text-[#2c3e50] mb-8">Qual è la tua posizione?</h2>
+                    <div class="space-y-6">
+                        <div><label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">CAP</label><input type="text" id="wizard-cap" maxlength="5" class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm outline-none focus:border-[#51b86d] focus:ring-1 focus:ring-[#51b86d] transition-all font-medium"></div>
+                        <div><label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Città</label><input type="text" id="wizard-citta" class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm outline-none focus:border-[#51b86d] focus:ring-1 focus:ring-[#51b86d] transition-all font-medium"></div>
+                        <div><label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Indirizzo</label><input type="text" id="wizard-indirizzo" class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm outline-none focus:border-[#51b86d] focus:ring-1 focus:ring-[#51b86d] transition-all font-medium"></div>
+                        <div><label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">Numero civico</label><input type="text" id="wizard-civico" class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm outline-none focus:border-[#51b86d] focus:ring-1 focus:ring-[#51b86d] transition-all font-medium"></div>
+                    </div>
+                </div>
+
+                <div id="step-2" class="hidden">
+                    <h2 class="text-xl md:text-2xl font-bold text-[#2c3e50] mb-8">Tipo di progetto</h2>
+                    <div class="space-y-4">
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_progetto" value="Installazione fotovoltaico" class="w-4 h-4 text-[#51b86d]"> <span>Installazione fotovoltaico</span></label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_progetto" value="Manutenzione fotovoltaico" class="w-4 h-4 text-[#51b86d]"> <span>Manutenzione fotovoltaico</span></label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_progetto" value="Manutenzione o riparazione pannelli solari" class="w-4 h-4 text-[#51b86d]"> <span>Manutenzione o riparazione pannelli solari</span></label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_progetto" value="Installazione solare termico" class="w-4 h-4 text-[#51b86d]"> <span>Installazione solare termico</span></label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_progetto" value="Manutenzione solare termico" class="w-4 h-4 text-[#51b86d]"> <span>Manutenzione solare termico</span></label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_progetto" value="Installazione fotovoltaico con accumulo" class="w-4 h-4 text-[#51b86d]"> <span>Installazione fotovoltaico con accumulo</span></label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_progetto" value="Manutenzione fotovoltaico con accumulo" class="w-4 h-4 text-[#51b86d]"> <span>Manutenzione fotovoltaico con accumulo</span></label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_progetto" value="Installazione pompe di calore" class="w-4 h-4 text-[#51b86d]"> <span>Installazione pompe di calore</span></label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_progetto" value="Manutenzione pompe di calore" class="w-4 h-4 text-[#51b86d]"> <span>Manutenzione pompe di calore</span></label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_progetto" value="Pulizia pannelli solari" class="w-4 h-4 text-[#51b86d]"> <span>Pulizia pannelli solari</span></label>
+                    </div>
+                </div>
+
+                <div id="step-3" class="hidden">
+                    <h2 class="text-xl md:text-2xl font-bold text-[#2c3e50] mb-8">Tipo di proprietà</h2>
+                    <div class="space-y-4">
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_proprieta" value="Abitazione privata" class="w-4 h-4 text-[#51b86d]"> <span>Abitazione privata</span></label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_proprieta" value="Condominio grande (> di 4 unità)" class="w-4 h-4 text-[#51b86d]"> <span>Condominio grande (> di 4 unità)</span></label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_proprieta" value="Condominio piccolo (<= 4 unità)" class="w-4 h-4 text-[#51b86d]"> <span>Condominio piccolo (<= 4 unità)</span></label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_proprieta" value="Azienda" class="w-4 h-4 text-[#51b86d]"> <span>Azienda</span></label>
+                    </div>
+                </div>
+
+                <div id="step-4" class="hidden">
+                    <h2 class="text-xl md:text-2xl font-bold text-[#2c3e50] mb-8">Tipo di tetto</h2>
+                    <div class="space-y-4">
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_tetto" value="Tetto inclinato" class="w-4 h-4 text-[#51b86d]"> <span>Tetto inclinato</span></label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"><input type="radio" name="tipo_tetto" value="Tetto piatto" class="w-4 h-4 text-[#51b86d]"> <span>Tetto piatto</span></label>
+                    </div>
+                </div>
+
+                <div id="step-5" class="hidden">
+                    <h2 class="text-xl md:text-2xl font-bold text-[#2c3e50] mb-8">Orientamento del tetto rispetto al sole</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer font-medium text-gray-700">
+                            <input type="radio" name="orientamento_tetto" value="Sud" class="w-4 h-4 text-[#51b86d] focus:ring-[#51b86d]"> <span>Sud</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer font-medium text-gray-700">
+                            <input type="radio" name="orientamento_tetto" value="Sud-est" class="w-4 h-4 text-[#51b86d] focus:ring-[#51b86d]"> <span>Sud-est</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer font-medium text-gray-700">
+                            <input type="radio" name="orientamento_tetto" value="Sud-ovest" class="w-4 h-4 text-[#51b86d] focus:ring-[#51b86d]"> <span>Sud-ovest</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer font-medium text-gray-700">
+                            <input type="radio" name="orientamento_tetto" value="Nord" class="w-4 h-4 text-[#51b86d] focus:ring-[#51b86d]"> <span>Nord</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer font-medium text-gray-700">
+                            <input type="radio" name="orientamento_tetto" value="Nord-est" class="w-4 h-4 text-[#51b86d] focus:ring-[#51b86d]"> <span>Nord-est</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer font-medium text-gray-700">
+                            <input type="radio" name="orientamento_tetto" value="Nord-ovest" class="w-4 h-4 text-[#51b86d] focus:ring-[#51b86d]"> <span>Nord-ovest</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer font-medium text-gray-700">
+                            <input type="radio" name="orientamento_tetto" value="Est" class="w-4 h-4 text-[#51b86d] focus:ring-[#51b86d]"> <span>Est</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer font-medium text-gray-700">
+                            <input type="radio" name="orientamento_tetto" value="Ovest" class="w-4 h-4 text-[#51b86d] focus:ring-[#51b86d]"> <span>Ovest</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer font-medium text-gray-700 md:col-span-2">
+                            <input type="radio" name="orientamento_tetto" value="Non so" class="w-4 h-4 text-[#51b86d] focus:ring-[#51b86d]"> <span>Non so</span>
+                        </label>
+                    </div>
+                </div>
+
+<div id="step-6" class="hidden">
+    <h2 class="text-xl md:text-2xl font-bold text-[#2c3e50] mb-8">Consumo elettrico annuo (kWh)</h2>
+    <div class="grid grid-cols-1 gap-3">
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="consumo_annuo" value="2300" class="w-4 h-4 text-[#51b86d]"> <span>2300 kWh (1 persona)</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="consumo_annuo" value="3400" class="w-4 h-4 text-[#51b86d]"> <span>3400 kWh (2 persone)</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="consumo_annuo" value="4100" class="w-4 h-4 text-[#51b86d]"> <span>4100 kWh (3 persone)</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="consumo_annuo" value="4600" class="w-4 h-4 text-[#51b86d]"> <span>4600 kWh (4 persone)</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="consumo_annuo" value="5300" class="w-4 h-4 text-[#51b86d]"> <span>5300 kWh (5 persone)</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="consumo_annuo" value="5400" class="w-4 h-4 text-[#51b86d]"> <span>5400 kWh (6 persone)</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="consumo_annuo" value="piu_5400" class="w-4 h-4 text-[#51b86d]"> <span>Più di 5400 kWh</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="consumo_annuo" value="non_so" class="w-4 h-4 text-[#51b86d]"> <span>Non posso fare una valutazione</span>
+        </label>
+    </div>
+</div>
+
+<div id="step-7" class="hidden">
+    <h2 class="text-xl md:text-2xl font-bold text-[#2c3e50] mb-8">Superficie per l'impianto (m²)</h2>
+    <div class="grid grid-cols-1 gap-3">
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="superficie_impianto" value="fino_30" class="w-4 h-4 text-[#51b86d]"> <span>Fino a 30m²</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="superficie_impianto" value="30_50" class="w-4 h-4 text-[#51b86d]"> <span>Tra i 30m² e i 50m²</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="superficie_impianto" value="50_150" class="w-4 h-4 text-[#51b86d]"> <span>Tra i 50m² e i 150m²</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="superficie_impianto" value="150_300" class="w-4 h-4 text-[#51b86d]"> <span>Tra i 150m² e i 300m²</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="superficie_impianto" value="piu_300" class="w-4 h-4 text-[#51b86d]"> <span>Più di 300m²</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="superficie_impianto" value="non_so" class="w-4 h-4 text-[#51b86d]"> <span>Non posso fare una valutazione</span>
+        </label>
+    </div>
+</div>
+
+<div id="step-8" class="hidden">
+    <h2 class="text-xl md:text-2xl font-bold text-[#2c3e50] mb-8">Data inizio lavori</h2>
+    <div class="grid grid-cols-1 gap-3">
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="inizio_lavori" value="prima_possibile" class="w-4 h-4 text-[#51b86d]"> <span>Il prima possibile</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="inizio_lavori" value="entro_1_mese" class="w-4 h-4 text-[#51b86d]"> <span>Entro 1 mese</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="inizio_lavori" value="entro_1_3_mesi" class="w-4 h-4 text-[#51b86d]"> <span>Entro 1-3 mesi</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="inizio_lavori" value="entro_3_6_mesi" class="w-4 h-4 text-[#51b86d]"> <span>Entro 3-6 mesi</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="inizio_lavori" value="nessuna_preferenza" class="w-4 h-4 text-[#51b86d]"> <span>Nessuna preferenza</span>
+        </label>
+    </div>
+</div>
+
+<div id="step-10" class="hidden">
+    <h2 class="text-xl md:text-2xl font-bold text-[#2c3e50] mb-8">Hai intenzione di effettuare questo lavoro?</h2>
+    <div class="grid grid-cols-1 gap-3">
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="intenzione_lavoro" value="si_confronto" class="w-4 h-4 text-[#51b86d]"> 
+            <span>Sì, dopo aver confrontato i professionisti</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="intenzione_lavoro" value="non_sicuro" class="w-4 h-4 text-[#51b86d]"> 
+            <span>Non ne sono ancora sicuro/a, dipende dalle informazioni che ottengo</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="intenzione_lavoro" value="solo_info" class="w-4 h-4 text-[#51b86d]"> 
+            <span>No, cerco solo informazioni</span>
+        </label>
+    </div>
+</div>
+
+<div id="step-11" class="hidden">
+    <h2 class="text-xl md:text-2xl font-bold text-[#2c3e50] mb-2">Dettagli aggiuntivi (facoltativi)</h2>
+    <p class="text-sm text-gray-500 mb-6">Aggiungi eventuali dettagli sul progetto per ricevere preventivi più accurati e personalizzati</p>
+    
+    <textarea name="dettagli_aggiuntivi" rows="5" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#51b86d] focus:border-transparent outline-none" placeholder="Es. ci sono zone in ombra sul tetto dovute alla presenza di caminetti, alberi o edifici? Ci sono lucernari sul tetto?"></textarea>
+</div>
+
+<div id="step-pdc-tipo" class="hidden">
+    <h2 class="text-xl md:text-2xl font-bold text-[#2c3e50] mb-8">Tipo di pompa di calore</h2>
+    <div class="space-y-3">
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="tipo_pdc" value="Aria/acqua (ACS)" class="w-4 h-4 text-[#51b86d]"> <span>Aria / acqua (produzione acqua calda)</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="tipo_pdc" value="Aria/acqua (Risca/Raff)" class="w-4 h-4 text-[#51b86d]"> <span>Aria / acqua (riscaldamento e raffrescamento)</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="tipo_pdc" value="Aria/acqua (All-in-one)" class="w-4 h-4 text-[#51b86d]"> <span>Aria / acqua (riscaldamento, raffrescamento, acqua calda)</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="tipo_pdc" value="Aria/aria (Split)" class="w-4 h-4 text-[#51b86d]"> <span>Aria / aria (riscaldamento e raffrescamento ad aria con split)</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="tipo_pdc" value="Acqua/acqua" class="w-4 h-4 text-[#51b86d]"> <span>Acqua / acqua</span>
+        </label>
+        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+            <input type="radio" name="tipo_pdc" value="Geotermica" class="w-4 h-4 text-[#51b86d]"> <span>Geotermica</span>
+        </label>
+    </div>
+</div>
+
+<div id="step-12" class="hidden">
+    <h2 class="text-xl md:text-2xl font-bold text-[#2c3e50] mb-2">A chi dobbiamo inviare il preventivo?</h2>
+    <p class="text-sm text-gray-500 mb-6">Inserisci i tuoi recapiti reali per ricevere le proposte gratuite dai professionisti della tua zona.</p>
+    
+    <div class="grid grid-cols-2 gap-4 mb-4">
+        <div><label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nome</label><input type="text" id="wizard-nome" class="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:border-[#51b86d]"></div>
+        <div><label class="block text-xs font-bold text-gray-700 uppercase mb-1">Cognome</label><input type="text" id="wizard-cognome" class="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:border-[#51b86d]"></div>
+    </div>
+    <div class="mb-4"><label class="block text-xs font-bold text-gray-700 uppercase mb-1">E-mail</label><input type="email" id="wizard-email" class="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:border-[#51b86d]"></div>
+    <div class="mb-6"><label class="block text-xs font-bold text-gray-700 uppercase mb-1">Numero di telefono</label><input type="tel" id="wizard-telefono" class="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:border-[#51b86d]"></div>
+
+    <button onclick="avviaVerifica()" class="w-full bg-[#f97316] hover:bg-[#ea580c] text-white font-bold py-3 rounded-md transition-all shadow-sm">
+    Ricevi preventivi gratis ➔
+</button>
+    <p class="text-center text-xs text-gray-400 mt-3">✓ Gratis - Nessun obbligo</p>
+</div>
+
+<div id="step-13" class="hidden text-center p-6">
+    <h2 class="text-xl font-bold mb-4 text-[#2c3e50]">Verifica il tuo numero</h2>
+    <p class="mb-4 text-gray-600">Per ricevere i preventivi, verifichiamo il tuo numero tramite WhatsApp.</p>
+    
+    <div id="codice-box" class="bg-gray-100 p-4 rounded-lg text-3xl font-bold tracking-widest text-[#51b86d] mb-6">
+        ----
+    </div>
+
+  <a id="btn-whatsapp" href="#" onclick="apriWhatsApp()" target="_blank" class="block w-full bg-[#25D366] text-white font-bold py-3 rounded-lg mb-4 hover:bg-[#128C7E] transition-all text-center">
+    Invia codice su WhatsApp
+</a>
+    
+    <button onclick="confermaInvioDefinitivo()" class="w-full bg-[#51b86d] text-white font-bold py-3 rounded-lg">
+        Ho inviato il codice - Conferma
+    </button>
+</div>
+
+                <div class="mt-12 pt-6 border-t border-gray-100 flex flex-col items-center gap-4">
+                    <div class="w-full flex justify-between items-center">
+                        <button onclick="gestisciIndietro()" class="border border-[#51b86d] text-[#51b86d] font-semibold px-6 py-2.5 rounded-md hover:bg-emerald-50 transition-colors cursor-pointer text-sm">Indietro</button>
+                        <button onclick="gestisciAvanti()" id="btnNext" class="bg-[#51b86d] hover:bg-[#439e5b] text-white font-bold px-8 py-2.5 rounded-md transition-all flex items-center gap-1.5 cursor-pointer text-base shadow-sm">Avanti ➔</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<footer class="bg-white border-t border-gray-200 py-4 text-xs text-gray-500 font-medium">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 text-center">
+            <div class="flex items-center gap-1.5">⏱️ Ultimo preventivo richiesto <span class="font-bold text-gray-700">7 minuti fa</span></div>
+            <div class="flex items-center gap-1.5">📅 <span class="font-bold text-gray-700">198</span> richieste oggi</div>
+            <div class="flex items-center gap-1.5"><span class="text-emerald-500">🔒</span> <span class="font-bold text-gray-700">SSL</span> Protetto</div>
+        </div>
+    </footer>
+
+    <script>
+    let cronologiaStep = [1];
+    let whatsappCliccato = false;
+    let correnteStep = 1;
+    const totaliStep = 13; // Assicurati che corrisponda al numero di step reali
+
+    document.addEventListener("DOMContentLoaded", function() {
+    // 1. Cerchiamo il CAP nell'URL (es. form.html?cap=12345)
+    const urlParams = new URLSearchParams(window.location.search);
+    const capDaUrl = urlParams.get('cap');
+    
+    // 2. Cerchiamo il CAP salvato in memoria
+    const salvatoCap = localStorage.getItem('data_cap');
+    
+    const inputCap = document.getElementById('wizard-cap');
+    
+    // Se c'è un CAP nell'URL, lo usiamo e sovrascriviamo quello vecchio in memoria
+    if (capDaUrl) {
+        inputCap.value = capDaUrl;
+        localStorage.setItem('data_cap', capDaUrl); // Aggiorniamo il salvataggio
+    } 
+    // Altrimenti, se non c'è nell'URL ma c'è in memoria, usiamo quello
+    else if (salvatoCap && inputCap) {
+        inputCap.value = salvatoCap;
+    }
+    
+    aggiornaInterfaccia();
+});
+
+function aggiornaInterfaccia() {
+    // 1. Nascondi tutti i div che iniziano con 'step-'
+    document.querySelectorAll('[id^="step-"]').forEach(div => div.classList.add('hidden'));
+
+    // 2. Costruisci l'ID (sempre nel formato 'step-X')
+    const idDaMostrare = `step-${correnteStep}`;
+    const elemento = document.getElementById(idDaMostrare);
+    
+    if (elemento) {
+        elemento.classList.remove('hidden');
+    }
+
+    // 3. Gestione visibilità bottoni Navigazione
+    const navBar = document.querySelector('.mt-12.pt-6.border-t');
+    // Nascondi la barra di navigazione solo se siamo nello step finale (13)
+    if (correnteStep === 13) {
+        navBar.classList.add('hidden');
+    } else {
+        navBar.classList.remove('hidden');
+    }
+}
+  function gestisciAvanti() {
+    // Validazione CAP
+    if (correnteStep === 1) {
+        const val = document.getElementById('wizard-cap').value.trim();
+        if (!val) { alert("Inserisci il CAP."); return; }
+        localStorage.setItem('data_cap', val);
+    }
+
+    // Identifica correttamente l'ID del div corrente
+    const idCorrente = (typeof correnteStep === 'number') ? `step-${correnteStep}` : `step-${correnteStep}`;
+    const stepElement = document.getElementById(idCorrente);
+    
+    // Salvataggio radio
+    const radioChecked = stepElement ? stepElement.querySelector('input[type="radio"]:checked') : null;
+    if (radioChecked) {
+        localStorage.setItem(`data_${radioChecked.name}`, radioChecked.value);
+    }
+
+    // 3. Logica di salto (Pura)
+    let prossimoStep;
+   if (correnteStep === 3) {
+    const tipoProgetto = localStorage.getItem('data_tipo_progetto') || "";
+    prossimoStep = tipoProgetto.includes("pompe di calore") ? "pdc-tipo" : 4;
+} 
+else if (correnteStep === "pdc-tipo") {
+    prossimoStep = 8; // Passa alla data (step-8)
+} 
+else if (correnteStep === 8) {
+    prossimoStep = 10; // Passa alle immagini (step-10)
+} 
+else {
+    // Gestione standard per il percorso fotovoltaico (4 -> 5 -> 6 -> 7 -> 8)
+    prossimoStep = (typeof correnteStep === 'number') ? correnteStep + 1 : 10;
+}
+
+    // 4. Aggiornamento cronologia
+    if (!cronologiaStep.includes(prossimoStep)) {
+        cronologiaStep.push(prossimoStep);
+    }
+    
+    correnteStep = prossimoStep;
+    aggiornaInterfaccia();
+}
+
+  function gestisciIndietro() {
+    // Controllo sicurezza: la cronologia deve avere almeno 2 elementi per poter tornare indietro
+    if (cronologiaStep.length > 1) {
+        // 1. Rimuoviamo l'ultimo elemento (quello in cui siamo ora)
+        cronologiaStep.pop(); 
+        
+        // 2. Il nuovo step corrente è l'ultimo rimasto nella lista
+        correnteStep = cronologiaStep[cronologiaStep.length - 1];
+        
+        // 3. Aggiorniamo la vista
+        aggiornaInterfaccia();
+    } else {
+        // Opzionale: se siamo al primo step, chiediamo conferma per uscire
+        if (confirm("Vuoi abbandonare la richiesta di preventivo?")) {
+            window.location.href = 'index.html'; 
+        }
+    }
+}
+
+
+async function inviaDati(event) {
+    if(event) event.preventDefault();
+    
+    const btn = document.querySelector('button[onclick="confermaInvioDefinitivo()"]');
+    btn.disabled = true; 
+    btn.innerText = "Invio in corso...";
+
+    // --- AGGIUNGI QUESTA LOGICA PER LA CATEGORIA ---
+    const tipoProgetto = localStorage.getItem('data_tipo_progetto') || "";
+    const categoria = tipoProgetto.toLowerCase().includes("pompe di calore") ? "PDC" : "FOTOVOLTAICO";
+
+    const datiForm = {
+        categoria_percorso: categoria,
+    nome: localStorage.getItem('data_nome'), // CAMBIATO DA ID A LOCALSTORAGE
+    cognome: localStorage.getItem('data_cognome'),
+    email: localStorage.getItem('data_email'),
+    telefono: localStorage.getItem('data_telefono'),
+        cap: document.getElementById('wizard-cap').value,
+        indirizzo: document.getElementById('wizard-indirizzo').value,
+        civico: document.getElementById('wizard-civico').value,
+        città: document.getElementById('wizard-citta').value,
+        
+        progetto: tipoProgetto, // Usiamo la variabile già estratta
+        proprieta: localStorage.getItem('data_tipo_proprieta'),
+        tipoPdc: localStorage.getItem('data_tipo_pdc'),
+        tetto: localStorage.getItem('data_tipo_tetto'),
+        orientamento: localStorage.getItem('data_orientamento_tetto'),
+        consumo: localStorage.getItem('data_consumo_annuo'),
+        inizioLavori: localStorage.getItem('data_inizio_lavori'),
+        superficieImpianto: localStorage.getItem('data_superficie_impianto'),
+        intenzioneLavoro: localStorage.getItem('data_intenzione_lavoro'),
+
+        dettagli: document.querySelector('textarea[name="dettagli_aggiuntivi"]').value,
+    };
+
+    // Inserisci QUI il Webhook URL che hai copiato da Zapier
+    const URL_FOTOVOLTAICO = "https://hooks.zapier.com/hooks/catch/12462472/42k6689/";
+    const URL_PDC = "https://hooks.zapier.com/hooks/catch/12462472/42qyqyp/";
+
+    const ZAPIER_WEBHOOK_URL = (datiForm.categoria_percorso === "PDC") ? URL_PDC : URL_FOTOVOLTAICO;
+    try {
+        const response = await fetch(ZAPIER_WEBHOOK_URL, {
+            method: 'POST',
+            // mode: 'cors' è il default, quindi Zapier ti risponderà correttamente
+            body: JSON.stringify(datiForm)
+        });
+
+
+        if (response.ok) {
+            arrayFile = []; 
+            localStorage.clear();
+            window.location.href = "thank-you.html";
+        } else {
+            throw new Error("Errore nel server di Zapier");
+        }
+    } catch (error) {
+        console.error("Errore:", error);
+        alert("Errore nell'invio. Riprova più tardi.");
+        btn.disabled = false;
+        btn.innerText = "Ho inviato il codice - Conferma";
+    }
+}
+
+let codiceVerifica = "";
+
+function avviaVerifica() {
+    // 1. SALVA I DATI PRIMA DI PASSARE OLTRE
+    localStorage.setItem('data_nome', document.getElementById('wizard-nome').value);
+    localStorage.setItem('data_cognome', document.getElementById('wizard-cognome').value);
+    localStorage.setItem('data_email', document.getElementById('wizard-email').value);
+    localStorage.setItem('data_telefono', document.getElementById('wizard-telefono').value);
+
+    // 2. Genera codice casuale
+    codiceVerifica = Math.floor(1000 + Math.random() * 9000).toString();
+    document.getElementById('codice-box').innerText = codiceVerifica;
+    
+    // 3. Prepara link WhatsApp
+    const numeroTuo = "393911384344";
+    const nome = document.getElementById('wizard-nome').value;
+    const messaggio = `Ciao, sono ${nome}. Il mio codice di verifica è: ${codiceVerifica}`;
+    const urlWA = `https://wa.me/${numeroTuo}?text=${encodeURIComponent(messaggio)}`;
+    
+    document.getElementById('btn-whatsapp').href = urlWA;
+    
+    // 4. Passa allo step 13
+    correnteStep = 13;
+    aggiornaInterfaccia();
+}
+
+function confermaInvioDefinitivo() {
+    if (!whatsappCliccato) {
+        alert("Per favore, clicca prima su 'Invia codice su WhatsApp' per verificare il tuo numero.");
+        return; // Blocca l'invio
+    }
+    
+    // Se siamo qui, il controllo è passato!
+    inviaDati(event); 
+}
+
+function apriWhatsApp() {
+    whatsappCliccato = true; // L'utente ha cliccato!
+    // ... qui mantieni il tuo codice esistente che apre il link wa.me
+}
+
+
+
+
+</script>
+</body>
+</html>
