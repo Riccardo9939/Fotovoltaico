@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impianto Fotovoltaico Semplice</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <header class="bg-white border-b border-[#e5e7eb] py-1">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="text-xl font-extrabold tracking-tight text-[#111827] flex items-center gap-0">
+                <img src="logo-fotovoltaico.png" alt="Logo" class="w-14 h-14" />
+                <span>Impianto Fotovoltaico <span class="text-[#51b86d]">Semplice</span></span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-6 text-sm text-gray-600 font-medium">
+                <div class="flex items-center gap-1.5">
+                    <span>😊</span> 1 milione di clienti soddisfatti
+                </div>
+                <div class="flex items-center gap-1.5">
+                    <span>👷</span> 230+ aziende di fotovoltaico
+                </div>
+            </div>
+        </div>
+    </header>
+
+<section class="relative w-full h-[500px] flex items-center justify-center">
+  <img src="tetto-fotovoltaico.jpg" alt="Pannelli solari" class="absolute inset-0 w-full h-full object-cover" />
+  
+  <div class="absolute inset-0 bg-black/40"></div> 
+  
+  <div class="relative z-10 text-center text-white p-4">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">Preventivi pannelli solari Gratis</h2>
+    <p class="text-lg mb-6 flex items-center justify-center gap-2">
+      ⏱️ Risparmia fino al 40%
+    </p>
+
+    <div class="bg-white p-2 rounded-lg flex flex-col md:flex-row gap-2 max-w-md mx-auto">
+     <input type="text" id="cap-hero" placeholder="Il tuo CAP" maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="flex-grow p-3 text-gray-700 outline-none rounded" />
+      <button onclick="validaEProcedi(document.getElementById('cap-hero'))" class="bg-green-600 text-white px-8 py-3 rounded-md font-bold hover:bg-green-700 transition">
+        Vai →
+      </button>
+    </div>
+    <p class="mt-2 text-sm">✅ Gratis - Nessun obbligo</p>
+  </div>
+</section>
+
+<section class="max-w-4xl mx-auto py-12 px-6">
+    <h2 class="text-3xl font-bold text-center mb-8">Preventivo fotovoltaico</h2>
+    <p class="text-gray-700 mb-6">Stai cercando un preventivo online per un impianto fotovoltaico da installare nella tua abitazione? Scopri in questa guida quali sono le variabili da tenere in considerazione per la definizione di un preventivo dettagliato.</p>
+
+    <h3 class="text-xl font-bold mb-4">Quanto costa installare il fotovoltaico?</h3>
+    <p class="text-gray-700 mb-6">Prima di parlare di preventivi per il fotovoltaico, è importante avere un'idea generale dei costi medi di un impianto fotovoltaico. Nella seguente tabella trovi maggiori informazioni sul costo di un impianto in base alla sua dimensione.</p>
+
+    <table class="w-full border-collapse border border-gray-300 mb-8">
+        <thead>
+            <tr class="bg-gray-100">
+                <th class="border border-gray-300 p-3 text-left">Dimensione impianto fotovoltaico</th>
+                <th class="border border-gray-300 p-3 text-left">Prezzo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td class="border border-gray-300 p-3">3 kw</td><td class="border border-gray-300 p-3">7.000 €</td></tr>
+            <tr><td class="border border-gray-300 p-3">6 kw</td><td class="border border-gray-300 p-3">13.000 €</td></tr>
+            <tr><td class="border border-gray-300 p-3">9 kw</td><td class="border border-gray-300 p-3">18.000 €</td></tr>
+        </tbody>
+    </table>
+
+    <h3 class="text-xl font-bold mb-4">Trova il preventivo per il fotovoltaico ideale</h3>
+    <p class="text-gray-700 mb-6">
+        Rivolgendosi alle persone giusto, è facile trovare il preventivo giusto per installare il fotovoltaico nella tua abitazione. Il modo più veloce ed efficace per ottenere un preventivo esatto è contattare un'azienda che si occupa di fotovoltaico nella tua zona. Ma come scegliere tra le tante presenti sul mercato? E come esseri sicuri di ottenere l'offerta più conveniente? La nostra piattaforma riunisce partner fidati e operanti su tutto il territorio italiano. 
+        <span class="font-bold text-gray-900">Compila la nostra scheda e ricevi preventivi gratuiti da parte di imprese del settore. Bastano pochi clic per risparmiare sul costo finale del tuo impianto fotovoltaico!</span>
+    </p>
+
+    <img src="tetto1-fotovoltaico.jpg" alt="Installazione pannelli solari" class="block mx-auto w-1/2 h-auto rounded-lg shadow-md mb-8" />
+
+    <h3 class="text-xl font-bold mb-4">Cosa indicare nella richiesta di preventivo per il fotovoltaico?</h3>
+    <p class="text-gray-700 mb-6">
+        Per avere un preventivo per un nuovo impianto fotovoltaico occorre conoscere innanzitutto il fabbisogno energetico annuo della tua abitazione. Questo si può dedurre anche dall’importo di una bolletta bimestrale: ad una spesa di 150 euro ogni due mesi, ad esempio, corrisponde grossomodo un fabbisogno annuo di circa 4500 kWh/annui. Questo dato è essenziale poiché da esso dipenderà il numero, il tipo e la potenza dei pannelli solari da installare. Altro aspetto importante è lo spazio disponibile per l’installazione, sia che avvenga a terra o sul tetto. Per un’installazione a terra si può infatti pensare all’uso di silicio amorfo, che occupa più spazio ed ha un rendimento minore della sua controparte cristallina ma è, allo stesso tempo, più economico.
+    </p>
+
+<h2 class="text-2xl font-bold mb-6 text-gray-900">Il preventivo per il fotovoltaico: cosa influenza il prezzo?</h2>
+    
+    <p class="text-gray-700 mb-6">
+        I preventivi del fotovoltaico sono soggette ad enormi fluttuazioni quando si consulta internet. 
+        Questo dipende dal fatto che il fabbisogno annuo e l'area disponibile per l'installazione 
+        ma ci sono altre variabili che ti permettono di avere una stima soddisfacente dei costi.
+    </p>
+
+    <p class="text-gray-700 mb-4 font-semibold">I fattori che concorrono a modificare il prezzo finale sono i seguenti:</p>
+    
+    <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
+        <li>tipo e qualità dei materiali componenti il modulo fotovoltaico;</li>
+        <li>altre componenti dell'impianto fotovoltaico;</li>
+        <li>trasporto e installazione dei pannelli;</li>
+        <li>pratiche burocratiche;</li>
+        <li>servizi aggiuntivi offerti dall'azienda installatrice.</li>
+    </ul>
+
+    <p class="text-gray-700">
+        Assicurati che tutte queste variabili siano precisate nel preventivo per il tuo fotovoltaico. 
+        Nei seguenti paragrafi troverai maggiori informazioni su questi importanti elementi da considerare.
+    </p>
+
+<h2 class="text-2xl font-bold mt-12 mb-6 text-gray-900">La qualità dei materiali per il fotovoltaico</h2>
+    
+    <p class="text-gray-700 mb-6">
+        Il fotovoltaico rappresenta un investimento che può sembrare impegnativo per molti. Nonostante ciò, occorre non cadere nell’errore di rinunciare alla qualità poiché si è attratti dal prezzo più basso. Considerando infatti un calo fisiologico delle prestazioni nel corso del tempo – questo è pari ad 1 punto percentuale l’anno – si comprende che scegliere materiali di alta qualità assicurerà un rendimento più costante e soddisfacente nel tempo.
+    </p>
+
+<h2 class="text-2xl font-bold mb-6 text-gray-900">Altre componenti dell’impianto fotovoltaico</h2>
+    
+    <p class="text-gray-700 mb-6">
+        In un preventivo dettagliato, occorre vengano considerate le spese per il trasporto di tutti i materiali. Per ciò che concerne l’installazione, eventuali particolarità della dimora possono rendere necessari alcuni interventi tecnici e opere murarie. Alla volte, l’installazione del fotovoltaico può coincidere con la bonifica di coperture in amianto.
+    </p>
+
+<h2 class="text-2xl font-bold mb-6 text-gray-900">Trasporto e installazione dell’impianto fotovoltaico</h2>
+    
+    <p class="text-gray-700 mb-6">
+        Malgrado la voce più costosa, all’interno di un preventivo per un impianto fotovoltaico, sia rappresentata dai moduli, occorre non dimenticare l’inverter. Questa componente indispensabile permette l’utilizzo domestico dell’energia solare, trasformando la corrente continua generata dalle celle fotovoltaiche in corrente alternata.
+    </p>
+
+<h2 class="text-2xl font-bold mb-6 text-gray-900">Pratiche burocratiche per il fotovoltaico</h2>
+    
+    <p class="text-gray-700 mb-6">
+        Il disbrigo di tutte le pratiche burocratiche a carico dell’installatore è un servizio aggiuntivo da non sottovalutare e non offerto da tutte le imprese. Ovviamente la presenza di questa opzione comporterà prezzi aggiuntivi.
+    </p>
+
+<p class="text-gray-700 mb-4 font-semibold">Altri servizi relativi al fotovoltaico</p>
+    
+    <p class="text-gray-700 mb-6">
+        Quando si paragonano diversi preventivi è buona norma valutare attentamente le garanzie ed i servizi aggiuntivi offerti dall’impresa.
+È importante sottolineare che senza un sopralluogo il costo dell’installazione potrebbe variare sensibilmente. Infatti, solo un tecnico è in grado di individuare con precisione tutte le variabili specifiche del caso.
+    </p>
+</section>
+
+<section class="bg-[#f8fafc] py-16 pb-24">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-black text-[#2c3e50] text-center mb-12">Perché sceglierci?</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="flex flex-col items-center">
+                    <div class="text-4xl text-[#51b86d] mb-3">📊</div>
+                    <p class="text-xs font-bold text-gray-500 max-w-[140px]">Sito #1 Fotovoltaico in Italia</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="text-4xl text-[#51b86d] mb-3">🟢</div>
+                    <p class="text-xs font-bold text-gray-500 max-w-[140px]">100.000+ famiglie soddisfatte</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="text-4xl text-[#51b86d] mb-3">🎖️</div>
+                    <p class="text-xs font-bold text-gray-500 max-w-[140px]">15+ anni di esperienza</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="text-4xl text-[#51b86d] mb-3">👥</div>
+                    <p class="text-xs font-bold text-gray-500 max-w-[140px]">230+ aziende di Fotovoltaico</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<div id="sticky-bar" class="fixed bottom-0 left-0 w-full bg-green-600 text-white p-4 shadow-lg transform translate-y-full transition-transform duration-300 z-50">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <span class="font-bold">RICEVI PREVENTIVI GRATUITI E RISPARMIA FINO AL 40%</span>
+        <div class="flex gap-2">
+            <input type="text" id="cap-sticky" placeholder="Il tuo CAP" maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="p-2 rounded text-gray-700" />
+            <button onclick="validaEProcedi(document.getElementById('cap-sticky'))" class="bg-white text-green-600 px-6 py-2 rounded font-bold">VAI</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Mostra la barra quando l'immagine hero esce dallo schermo
+    window.addEventListener('scroll', () => {
+        const heroHeight = document.querySelector('section').offsetHeight;
+        const stickyBar = document.getElementById('sticky-bar');
+        if (window.scrollY > heroHeight) {
+            stickyBar.classList.remove('translate-y-full');
+        } else {
+            stickyBar.classList.add('translate-y-full');
+        }
+    });
+
+    // Funzione di validazione CAP
+    function validaEProcedi(inputElement) {
+        const cap = inputElement.value;
+        const regex = /^[0-9]{5}$/;
+        
+        if (regex.test(cap)) {
+            window.location.href = 'form.html?cap=' + cap;
+        } else {
+            alert("Per favore, inserisci un CAP valido di 5 cifre.");
+        }
+    }
+</script>
+
+</body>
+</html>
