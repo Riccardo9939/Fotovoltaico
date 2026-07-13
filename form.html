@@ -256,13 +256,17 @@
     <p class="text-sm text-gray-500 mb-6">Inserisci i tuoi recapiti reali per ricevere le proposte gratuite dai professionisti della tua zona.</p>
     
     <div class="grid grid-cols-2 gap-4 mb-4">
-        <div><label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nome</label><input type="text" id="wizard-nome" class="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:border-[#51b86d]"></div>
-        <div><label class="block text-xs font-bold text-gray-700 uppercase mb-1">Cognome</label><input type="text" id="wizard-cognome" class="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:border-[#51b86d]"></div>
-    </div>
-    <div class="mb-4"><label class="block text-xs font-bold text-gray-700 uppercase mb-1">E-mail</label><input type="email" id="wizard-email" class="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:border-[#51b86d]"></div>
-    <div class="mb-6"><label class="block text-xs font-bold text-gray-700 uppercase mb-1">Numero di telefono</label><input type="tel" id="wizard-telefono" class="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:border-[#51b86d]"></div>
+    <div><label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nome</label>
+        <input type="text" id="wizard-nome" oninput="controllaCampiContatti()" class="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:border-[#51b86d]"></div>
+    <div><label class="block text-xs font-bold text-gray-700 uppercase mb-1">Cognome</label>
+        <input type="text" id="wizard-cognome" oninput="controllaCampiContatti()" class="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:border-[#51b86d]"></div>
+</div>
+<div class="mb-4"><label class="block text-xs font-bold text-gray-700 uppercase mb-1">E-mail</label>
+    <input type="email" id="wizard-email" oninput="controllaCampiContatti()" class="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:border-[#51b86d]"></div>
+<div class="mb-6"><label class="block text-xs font-bold text-gray-700 uppercase mb-1">Numero di telefono</label>
+    <input type="tel" id="wizard-telefono" oninput="controllaCampiContatti()" class="w-full px-4 py-2 border border-gray-300 rounded-md outline-none focus:border-[#51b86d]"></div>
 
-    <button onclick="avviaVerifica()" class="w-full bg-[#f97316] hover:bg-[#ea580c] text-white font-bold py-3 rounded-md transition-all shadow-sm">
+<button onclick="avviaVerifica()" id="btn-ricevi-preventivo" disabled class="w-full bg-[#f97316] hover:bg-[#ea580c] text-white font-bold py-3 rounded-md transition-all shadow-sm opacity-50 cursor-not-allowed">
     Ricevi preventivi gratis ➔
 </button>
     <p class="text-center text-xs text-gray-400 mt-3">✓ Gratis - Nessun obbligo</p>
@@ -346,12 +350,22 @@ function aggiornaInterfaccia() {
 
     // 3. Gestione visibilità bottoni Navigazione
     const navBar = document.querySelector('.mt-12.pt-6.border-t');
-    // Nascondi la barra di navigazione solo se siamo nello step finale (13)
-    if (correnteStep === 13) {
-        navBar.classList.add('hidden');
+    const btnNext = document.getElementById('btnNext'); // Il tasto Avanti
+    const btnBack = document.querySelector('button[onclick="gestisciIndietro()"]'); // Il tasto Indietro
+
+    // Mostriamo sempre la barra di navigazione
+    navBar.classList.remove('hidden');
+
+    // LOGICA AVANTI: Nascondi se siamo allo step 12 o 13
+    if (correnteStep === 12 || correnteStep === 13) {
+        btnNext.classList.add('hidden');
     } else {
-        navBar.classList.remove('hidden');
+        btnNext.classList.remove('hidden');
     }
+
+    // LOGICA INDIETRO: Sempre visibile, tranne forse al primo step se vuoi
+    // Nel tuo caso vuoi che sia visibile anche allo step 13
+    btnBack.classList.remove('hidden');
 }
   function gestisciAvanti() {
     // Validazione CAP
@@ -398,6 +412,13 @@ else {
 }
 
   function gestisciIndietro() {
+
+      if (correnteStep === 13) {
+        correnteStep = 12;
+        aggiornaInterfaccia();
+        return; // Usciamo dalla funzione
+    }
+      
     // Controllo sicurezza: la cronologia deve avere almeno 2 elementi per poter tornare indietro
     if (cronologiaStep.length > 1) {
         // 1. Rimuoviamo l'ultimo elemento (quello in cui siamo ora)
@@ -416,6 +437,26 @@ else {
     }
 }
 
+        function controllaCampiContatti() {
+    const nome = document.getElementById('wizard-nome').value.trim();
+    const cognome = document.getElementById('wizard-cognome').value.trim();
+    const email = document.getElementById('wizard-email').value.trim();
+    const telefono = document.getElementById('wizard-telefono').value.trim();
+    
+    // Il bottone all'interno dello step-12
+    const btnRicevi = document.querySelector('#step-12 button[onclick="avviaVerifica()"]');
+
+    // Verifica se tutti i campi sono pieni
+    const tuttoCompilato = nome !== "" && cognome !== "" && email !== "" && telefono !== "";
+
+    if (tuttoCompilato) {
+        btnRicevi.classList.remove('opacity-50', 'cursor-not-allowed');
+        btnRicevi.disabled = false;
+    } else {
+        btnRicevi.classList.add('opacity-50', 'cursor-not-allowed');
+        btnRicevi.disabled = true;
+    }
+}
 
 async function inviaDati(event) {
     if(event) event.preventDefault();
