@@ -346,6 +346,14 @@ function aggiornaInterfaccia() {
     
     if (elemento) {
         elemento.classList.remove('hidden');
+        
+        // TRACCIAMENTO GA4
+        if (typeof gtag === 'function') {
+            gtag('event', 'form_step_view', {
+                'step_number': correnteStep,
+                'step_name': 'step-' + correnteStep
+            });
+        }
     }
 
     // 3. Gestione visibilità bottoni Navigazione
