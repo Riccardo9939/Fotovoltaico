@@ -11,12 +11,16 @@
     <meta property="og:title" content="Preventivi fotovoltaico gratis - Risparmia fino al 40% | Impianto Fotovoltaico Semplice">
     <meta property="og:description" content="Cerchi un impianto fotovoltaico efficiente? Richiedi preventivi gratuiti.">
     <meta property="og:image" content="https://www.impiantofotovoltaicosemplice.it/favicon.png">
-    <!-- Aggiungi questa descrizione: è quello che apparirà sotto il titolo su Google -->
     <meta name="description" content="Cerchi un impianto fotovoltaico efficiente? Richiedi preventivi gratuiti su ImpiantoFotovoltaicoSemplice.it. Risparmia fino al 40% con soluzioni su misura per la tua casa.">
 
-    <!-- Aggiungi questo per autorizzare Google a indicizzare il sito -->
     <meta name="robots" content="index, follow">
     <script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
 </head>
 
     <!-- Google tag (gtag.js) -->
@@ -57,115 +61,258 @@
         </div>
     </header>
 
-<section class="relative w-full h-[500px] flex items-center justify-center">
+<section id="modulo-cap" class="bg-[#51b86d] py-20 px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        
+        <!-- Lato Sinistra: Logo e Testo Istituzionale -->
+      <div class="text-white text-center">
+    <!-- Logo ingrandito, reso bianco e centrato -->
+    <img src="favicon.png" alt="Logo Aziendale" class="h-50 md:h-60 mx-auto mb-6 object-contain" style="filter: brightness(0) invert(1);" />
+    
+    <h2 class="text-3xl md:text-5xl font-black mb-4">Passa al Fotovoltaico</h2>
+    
+    <p class="text-white/90 text-lg leading-relaxed max-w-lg mx-auto">
+        Compila il modulo per richiedere una consulenza gratuita e scoprire tutte le agevolazioni fiscali attive per la tua casa.
+    </p>
+</div>
+
+        <!-- Lato Destra: Card del Form -->
+        <div class="bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
+            <form id="fotovoltaicoForm" class="space-y-5">
+                
+                <!-- Nome e Cognome -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nome e Cognome *</label>
+                    <input type="text" name="nome" required placeholder="Inserisci il tuo Nome e Cognome" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
+                </div>
+
+                <!-- Città -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Città *</label>
+                    <input type="text" name="citta" required placeholder="Inserisci la tua Città" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
+                </div>
+
+                <!-- CAP (Sostituito al fornitore: solo numeri, obbligatorio, max 5 cifre) -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">CAP *</label>
+                    <input type="text" required name="cap" placeholder="Es. 20121" maxlength="5" pattern="\d{5}" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
+                </div>
+
+                <!-- Telefono -->
+                 <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Telefono *</label>
+                    <input type="text" required name="phone" placeholder="Inserisci il tuo numero" maxlength="10" pattern="\d{10}" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
+                </div>
+
+                <!-- Privacy Policy -->
+                <div class="flex items-start space-x-3 pt-2">
+                    <input type="checkbox" required id="privacy" class="mt-1 w-4 h-4 text-[#51b86d] border-gray-300 rounded focus:ring-[#51b86d]" />
+                    <label for="privacy" class="text-[11px] text-gray-500 leading-tight">
+                        Ai sensi dell'art. 13 del Regolamento UE 679/2016 - "GDPR" autorizzo al trattamento dei dati per essere ricontattato e ricevere informazioni commerciali. Ho preso visione dell'informativa sulla privacy.
+                    </label>
+                </div>
+
+                <!-- Pulsante Invio -->
+                <button type="submit" id="submitBtn" class="w-full bg-[#51b86d] hover:bg-[#46a35f] text-white font-bold py-4 rounded-xl shadow-[0_10px_20px_rgba(81,184,109,0.3)] transition text-center cursor-pointer">
+                    Invia Richiesta
+                </button>
+
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<section class="relative w-full min-h-[700px] flex items-center justify-center py-20">
   <img src="tetto-fotovoltaico.jpg" alt="Pannelli solari" class="absolute inset-0 w-full h-full object-cover" />
   
-  <div class="absolute inset-0 bg-black/40"></div> 
+  <div class="absolute inset-0 bg-black/50"></div> 
   
-  <div class="relative z-10 text-center text-white p-4">
-    <h2 class="text-4xl md:text-5xl font-bold mb-4">Preventivi pannelli solari Gratis</h2>
-    <p class="text-lg mb-6 flex items-center justify-center gap-2">
-      ⏱️ Risparmia fino al 40%
+  <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+    <!-- Pre-Titolo con margine inferiore maggiore -->
+    <span class="inline-block bg-green-600/90 text-white text-sm md:text-base font-semibold px-4 py-1.5 rounded-full mb-10 shadow-sm">
+      Riduci le bollette e aumenta il valore della tua casa
+    </span>
+
+    <!-- Titolo Principale (H1) con spaziatura ottimizzata -->
+    <h1 class="text-3xl md:text-5xl font-extrabold mb-10 leading-tight">
+      Impianto Fotovoltaico Semplice: Energia Pulita e Risparmio Immediato in Bolletta.
+    </h1>
+
+    <!-- Sottotitolo con respiro e larghezza controllata -->
+    <p class="text-base md:text-lg mb-7 text-gray-200 max-w-2xl mx-auto leading-relaxed">
+      Passa all'energia solare senza burocrazia e senza stress. Pensiamo a tutto noi: dall'installazione "chiavi in mano" alla gestione degli incentivi fiscali.
     </p>
 
-    <div class="bg-white p-2 rounded-lg flex flex-col md:flex-row gap-2 max-w-md mx-auto">
-     <input type="text" id="cap-hero" placeholder="Il tuo CAP" maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');" class="flex-grow p-3 text-gray-700 outline-none rounded" />
-      <button onclick="validaEProcedi(document.getElementById('cap-hero'))" class="bg-green-600 text-white px-8 py-3 rounded-md font-bold hover:bg-green-700 transition">
-        Vai →
-      </button>
+    <!-- Due Pulsanti con spaziatura -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+      <!-- Pulsante WhatsApp (Sostituisci TUONUMERO con il tuo es. 393400000000) -->
+      <a href="https://wa.me/393478031997?text=Salve,%20vorrei%20avere%20informazioni%20per%20un%20impianto%20fotovoltaico%20nella%20mia%20zona." target="_blank" class="w-full sm:w-auto bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold px-6 py-3.5 rounded-lg shadow-lg flex items-center justify-center gap-2 transition duration-200">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        Parla ora con un tecnico su WhatsApp
+      </a>
+
+      <!-- Pulsante Secondario (Scorrimento al modulo CAP) -->
+      <a href="#modulo-cap" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-3.5 rounded-lg shadow-lg flex items-center justify-center gap-2 transition duration-200">
+        Richiedi Preventivo Gratuito ↑
+      </a>
     </div>
-    <p class="mt-2 text-sm">✅ Gratis - Nessun obbligo</p>
+
   </div>
 </section>
 
-<section class="max-w-4xl mx-auto py-12 px-6">
-    <h2 class="text-3xl font-bold text-center mb-8">Preventivo fotovoltaico</h2>
-    <p class="text-gray-700 mb-6">Stai cercando un preventivo online per un impianto fotovoltaico da installare nella tua abitazione? Scopri in questa guida quali sono le variabili da tenere in considerazione per la definizione di un preventivo dettagliato.</p>
+<!-- SEZIONE 1: I TRE VANTAGGI -->
+<section class="bg-white py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+        <!-- Titolo Centrale con la parola Vantaggi in verde -->
+        <h2 class="text-3xl font-black text-[#2c3e50] text-center mb-12">I Tre <span class="text-[#51b86d]">Vantaggi</span></h2>
 
-    <h3 class="text-xl font-bold mb-4">Quanto costa installare il fotovoltaico?</h3>
-    <p class="text-gray-700 mb-6">Prima di parlare di preventivi per il fotovoltaico, è importante avere un'idea generale dei costi medi di un impianto fotovoltaico. Nella seguente tabella trovi maggiori informazioni sul costo di un impianto in base alla sua dimensione.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Vantaggio 1: Bolletta -->
+            <div class="bg-white border border-gray-100 p-8 rounded-2xl shadow-[0_10px_30px_rgba(81,184,109,0.15)] flex flex-col items-center text-center hover:shadow-[0_15px_40px_rgba(81,184,109,0.25)] transition">
+                <div class="mb-5 p-2">
+                    <img src="fulmine.svg" alt="Taglio dei Costi" style="width: 70px; height: 70px; filter: brightness(0) saturate(100%) invert(64%) sepia(34%) saturate(848%) hue-rotate(85deg) brightness(94%) drop-shadow(0 0 10px rgba(81,184,109,0.9));" />
+                </div>
+                <h3 class="text-xl font-bold text-[#2c3e50] mb-3">Taglio dei Costi</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Abbatti la spesa per l'energia elettrica fin dal primo mese.
+                </p>
+            </div>
 
-    <table class="w-full border-collapse border border-gray-300 mb-8">
-        <thead>
-            <tr class="bg-gray-100">
-                <th class="border border-gray-300 p-3 text-left">Dimensione impianto fotovoltaico</th>
-                <th class="border border-gray-300 p-3 text-left">Prezzo</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td class="border border-gray-300 p-3">3 kw</td><td class="border border-gray-300 p-3">7.000 €</td></tr>
-            <tr><td class="border border-gray-300 p-3">6 kw</td><td class="border border-gray-300 p-3">13.000 €</td></tr>
-            <tr><td class="border border-gray-300 p-3">9 kw</td><td class="border border-gray-300 p-3">18.000 €</td></tr>
-        </tbody>
-    </table>
+            <!-- Vantaggio 2: Documenti -->
+            <div class="bg-white border border-gray-100 p-8 rounded-2xl shadow-[0_10px_30px_rgba(81,184,109,0.15)] flex flex-col items-center text-center hover:shadow-[0_15px_40px_rgba(81,184,109,0.25)] transition">
+                <div class="mb-5 p-2">
+                    <img src="documenti.svg" alt="Zero Burocrazia" style="width: 70px; height: 70px; filter: brightness(0) saturate(100%) invert(64%) sepia(34%) saturate(848%) hue-rotate(85deg) brightness(94%) drop-shadow(0 0 10px rgba(81,184,109,0.9));" />
+                </div>
+                <h3 class="text-xl font-bold text-[#2c3e50] mb-3">Zero Burocrazia</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Gestiamo noi tutte le pratiche autorizzative e le agevolazioni fiscali.
+                </p>
+            </div>
 
-    <h3 class="text-xl font-bold mb-4">Trova il preventivo per il fotovoltaico ideale</h3>
-    <p class="text-gray-700 mb-6">
-        Rivolgendosi alle persone giusto, è facile trovare il preventivo giusto per installare il fotovoltaico nella tua abitazione. Il modo più veloce ed efficace per ottenere un preventivo esatto è contattare un'azienda che si occupa di fotovoltaico nella tua zona. Ma come scegliere tra le tante presenti sul mercato? E come esseri sicuri di ottenere l'offerta più conveniente? La nostra piattaforma riunisce partner fidati e operanti su tutto il territorio italiano. 
-        <span class="font-bold text-gray-900">Compila la nostra scheda e ricevi preventivi gratuiti da parte di imprese del settore. Bastano pochi clic per risparmiare sul costo finale del tuo impianto fotovoltaico!</span>
-    </p>
-
-    <img src="tetto1-fotovoltaico.jpg" alt="Installazione pannelli solari" class="block mx-auto w-1/2 h-auto rounded-lg shadow-md mb-8" />
-
-    <h3 class="text-xl font-bold mb-4">Cosa indicare nella richiesta di preventivo per il fotovoltaico?</h3>
-    <p class="text-gray-700 mb-6">
-        Per avere un preventivo per un nuovo impianto fotovoltaico occorre conoscere innanzitutto il fabbisogno energetico annuo della tua abitazione. Questo si può dedurre anche dall’importo di una bolletta bimestrale: ad una spesa di 150 euro ogni due mesi, ad esempio, corrisponde grossomodo un fabbisogno annuo di circa 4500 kWh/annui. Questo dato è essenziale poiché da esso dipenderà il numero, il tipo e la potenza dei pannelli solari da installare. Altro aspetto importante è lo spazio disponibile per l’installazione, sia che avvenga a terra o sul tetto. Per un’installazione a terra si può infatti pensare all’uso di silicio amorfo, che occupa più spazio ed ha un rendimento minore della sua controparte cristallina ma è, allo stesso tempo, più economico.
-    </p>
-
-<h2 class="text-2xl font-bold mb-6 text-gray-900">Il preventivo per il fotovoltaico: cosa influenza il prezzo?</h2>
-    
-    <p class="text-gray-700 mb-6">
-        I preventivi del fotovoltaico sono soggette ad enormi fluttuazioni quando si consulta internet. 
-        Questo dipende dal fatto che il fabbisogno annuo e l'area disponibile per l'installazione 
-        ma ci sono altre variabili che ti permettono di avere una stima soddisfacente dei costi.
-    </p>
-
-    <p class="text-gray-700 mb-4 font-semibold">I fattori che concorrono a modificare il prezzo finale sono i seguenti:</p>
-    
-    <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
-        <li>tipo e qualità dei materiali componenti il modulo fotovoltaico;</li>
-        <li>altre componenti dell'impianto fotovoltaico;</li>
-        <li>trasporto e installazione dei pannelli;</li>
-        <li>pratiche burocratiche;</li>
-        <li>servizi aggiuntivi offerti dall'azienda installatrice.</li>
-    </ul>
-
-    <p class="text-gray-700">
-        Assicurati che tutte queste variabili siano precisate nel preventivo per il tuo fotovoltaico. 
-        Nei seguenti paragrafi troverai maggiori informazioni su questi importanti elementi da considerare.
-    </p>
-
-<h2 class="text-2xl font-bold mt-12 mb-6 text-gray-900">La qualità dei materiali per il fotovoltaico</h2>
-    
-    <p class="text-gray-700 mb-6">
-        Il fotovoltaico rappresenta un investimento che può sembrare impegnativo per molti. Nonostante ciò, occorre non cadere nell’errore di rinunciare alla qualità poiché si è attratti dal prezzo più basso. Considerando infatti un calo fisiologico delle prestazioni nel corso del tempo – questo è pari ad 1 punto percentuale l’anno – si comprende che scegliere materiali di alta qualità assicurerà un rendimento più costante e soddisfacente nel tempo.
-    </p>
-
-<h2 class="text-2xl font-bold mb-6 text-gray-900">Altre componenti dell’impianto fotovoltaico</h2>
-    
-    <p class="text-gray-700 mb-6">
-        In un preventivo dettagliato, occorre vengano considerate le spese per il trasporto di tutti i materiali. Per ciò che concerne l’installazione, eventuali particolarità della dimora possono rendere necessari alcuni interventi tecnici e opere murarie. Alla volte, l’installazione del fotovoltaico può coincidere con la bonifica di coperture in amianto.
-    </p>
-
-<h2 class="text-2xl font-bold mb-6 text-gray-900">Trasporto e installazione dell’impianto fotovoltaico</h2>
-    
-    <p class="text-gray-700 mb-6">
-        Malgrado la voce più costosa, all’interno di un preventivo per un impianto fotovoltaico, sia rappresentata dai moduli, occorre non dimenticare l’inverter. Questa componente indispensabile permette l’utilizzo domestico dell’energia solare, trasformando la corrente continua generata dalle celle fotovoltaiche in corrente alternata.
-    </p>
-
-<h2 class="text-2xl font-bold mb-6 text-gray-900">Pratiche burocratiche per il fotovoltaico</h2>
-    
-    <p class="text-gray-700 mb-6">
-        Il disbrigo di tutte le pratiche burocratiche a carico dell’installatore è un servizio aggiuntivo da non sottovalutare e non offerto da tutte le imprese. Ovviamente la presenza di questa opzione comporterà prezzi aggiuntivi.
-    </p>
-
-<p class="text-gray-700 mb-4 font-semibold">Altri servizi relativi al fotovoltaico</p>
-    
-    <p class="text-gray-700 mb-6">
-        Quando si paragonano diversi preventivi è buona norma valutare attentamente le garanzie ed i servizi aggiuntivi offerti dall’impresa.
-È importante sottolineare che senza un sopralluogo il costo dell’installazione potrebbe variare sensibilmente. Infatti, solo un tecnico è in grado di individuare con precisione tutte le variabili specifiche del caso.
-    </p>
+            <!-- Vantaggio 3: Chiavi -->
+            <div class="bg-white border border-gray-100 p-8 rounded-2xl shadow-[0_10px_30px_rgba(81,184,109,0.15)] flex flex-col items-center text-center hover:shadow-[0_15px_40px_rgba(81,184,109,0.25)] transition">
+                <div class="mb-5 p-2">
+                    <img src="chiave.svg" alt="Chiavi in Mano" style="width: 70px; height: 70px; filter: brightness(0) saturate(100%) invert(64%) sepia(34%) saturate(848%) hue-rotate(85deg) brightness(94%) drop-shadow(0 0 10px rgba(81,184,109,0.9));" />
+                </div>
+                <h3 class="text-xl font-bold text-[#2c3e50] mb-3">Chiavi in Mano</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Installazione rapida, collaudo e assistenza continua.
+                </p>
+            </div>
+        </div>
+    </div>
 </section>
+
+<section class="bg-gray-50 py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+        <!-- Titolo Centrale con la parola Clienti in verde -->
+        <h2 class="text-3xl font-black text-[#2c3e50] text-center mb-4">Cosa dicono i nostri <span class="text-[#51b86d]">Clienti</span></h2>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">La testimonianza di chi ha già scelto di affidarsi a noi per la propria indipendenza energetica.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Recensione 1 -->
+            <div class="bg-white border border-gray-100 p-8 rounded-2xl shadow-[0_10px_30px_rgba(81,184,109,0.15)] flex flex-col justify-between hover:shadow-[0_15px_40px_rgba(81,184,109,0.25)] transition">
+                <div>
+                    <!-- Stelline di Valutazione -->
+                    <div class="flex text-yellow-400 mb-4 space-x-1">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-gray-600 italic leading-relaxed mb-6">
+                        "Passare al fotovoltaico sembrava complicato, invece mi hanno seguito passo dopo passo. Bolletta quasi azzerata già dal primo mese!"
+                    </p>
+                </div>
+                <div>
+                    <!-- Foto Impianto (facoltativa/sostituibile) -->
+                    <div class="mb-4 rounded-xl overflow-hidden h-36 bg-gray-100">
+                        <img src="impianto-1.jpg" alt="Impianto Fotovoltaico Cliente" class="w-full h-full object-cover" />
+                    </div>
+                    <h4 class="font-bold text-[#2c3e50]">Francesco Scaroni</h4>
+                    <span class="text-sm text-gray-500">Bergamo (BG)</span>
+                </div>
+            </div>
+
+            <!-- Recensione 2 -->
+            <div class="bg-white border border-gray-100 p-8 rounded-2xl shadow-[0_10px_30px_rgba(81,184,109,0.15)] flex flex-col justify-between hover:shadow-[0_15px_40px_rgba(81,184,109,0.25)] transition">
+                <div>
+                    <!-- Stelline di Valutazione -->
+                    <div class="flex text-yellow-400 mb-4 space-x-1">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-gray-600 italic leading-relaxed mb-6">
+                        "Installazione rapidissima in un solo giorno e zero pensieri per la burocrazia. Team professionale e preparato, consigliatissimi."
+                    </p>
+                </div>
+                <div>
+                    <!-- Foto Impianto (facoltativa/sostituibile) -->
+                    <div class="mb-4 rounded-xl overflow-hidden h-36 bg-gray-100">
+                        <img src="impianto-2.jpg" alt="Impianto Fotovoltaico Cliente" class="w-full h-full object-cover" />
+                    </div>
+                    <h4 class="font-bold text-[#2c3e50]">Greta Fossati</h4>
+                    <span class="text-sm text-gray-500">Brescia (BS)</span>
+                </div>
+            </div>
+
+            <!-- Recensione 3 -->
+            <div class="bg-white border border-gray-100 p-8 rounded-2xl shadow-[0_10px_30px_rgba(81,184,109,0.15)] flex flex-col justify-between hover:shadow-[0_15px_40px_rgba(81,184,109,0.25)] transition">
+                <div>
+                    <!-- Stelline di Valutazione -->
+                    <div class="flex text-yellow-400 mb-4 space-x-1">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="text-gray-600 italic leading-relaxed mb-6">
+                        "Ottimo rapporto qualità-prezzo. Ho potuto usufruire di tutte le detrazioni fiscali senza impazzire con le carte. Davvero soddisfatto."
+                    </p>
+                </div>
+                <div>
+                    <!-- Foto Impianto (facoltativa/sostituibile) -->
+                    <div class="mb-4 rounded-xl overflow-hidden h-36 bg-gray-100">
+                        <img src="impianto-3.jpg" alt="Impianto Fotovoltaico Cliente" class="w-full h-full object-cover" />
+                    </div>
+                    <h4 class="font-bold text-[#2c3e50]">Davide Lantini</h4>
+                    <span class="text-sm text-gray-500">Milano (MI)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-[#2c3e50] py-20 px-6 text-center text-white">
+    <div class="max-w-4xl mx-auto">
+        <!-- Titolo / Frase d'impatto -->
+        <h2 class="text-3xl md:text-4xl font-black mb-6">
+            Pronto a dare un taglio alle <span class="text-[#51b86d]">bollette</span>?
+        </h2>
+        
+        <!-- Sottotitolo -->
+        <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+            I nostri consulenti sono a tua disposizione per una consulenza e un preventivo completamente gratuiti.
+        </p>
+
+        <!-- Pulsanti di Azione -->
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <!-- Pulsante WhatsApp (Verde coordinato) -->
+            <a href="https://wa.me/393478031997" target="_blank" class="w-full sm:w-auto bg-[#51b86d] hover:bg-[#46a35f] text-white font-bold py-4 px-8 rounded-xl shadow-[0_10px_25px_rgba(81,184,109,0.3)] transition flex items-center justify-center space-x-3">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.315-9.877-9.781-9.878-5.463 0-9.876 4.415-9.879 9.877 0 1.961.56 3.792 1.613 5.368l-1.059 3.868 3.935-1.082zm10.741-7.234c-.294-.148-1.741-.859-2.01-.957-.269-.098-.465-.148-.66.147-.194.294-.763.957-.935 1.155-.173.198-.345.222-.64.074-.294-.149-1.24-.457-2.364-1.457-.874-.783-1.464-1.752-1.637-2.047-.173-.294-.018-.453.129-.6.132-.13.294-.343.441-.515.147-.173.196-.295.294-.493.098-.198.049-.37-.024-.518-.074-.148-.66-1.59-.904-2.176-.238-.568-.482-.49-.66-.499-.171-.01-.365-.01-.559-.01-.194 0-.51.073-.777.37-.268.297-1.023 1-1.023 2.438 0 1.439 1.048 2.825 1.194 3.022.147.196 2.056 3.141 4.982 4.403.695.3 1.238.48 1.661.614.698.222 1.334.191 1.838.116.561-.084 1.741-.711 1.986-1.398.244-.687.244-1.276.171-1.398-.074-.122-.268-.194-.562-.342z"/>
+                </svg>
+                <span>Contattaci su WhatsApp</span>
+            </a>
+
+            <!-- Pulsante Compila il Modulo (Collega all'ID del form es: #modulo-cap o #form) -->
+            <a href="#modulo-cap" class="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white border-2 border-white font-bold py-4 px-8 rounded-xl transition flex items-center justify-center space-x-2">
+    <span>Compila il Modulo</span>
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+</a>
+        </div>
+    </div>
+</section>
+
+
+
+
 
 <section class="bg-[#f8fafc] py-16 pb-24">
         <div class="max-w-6xl mx-auto px-4">
@@ -192,6 +339,8 @@
         </div>
     </section>
 
+
+
 <div id="sticky-bar" class="fixed bottom-0 left-0 w-full bg-green-600 text-white p-4 shadow-lg transform translate-y-full transition-transform duration-300 z-50">
     <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <span class="font-bold">RICEVI PREVENTIVI GRATUITI E RISPARMIA FINO AL 40%</span>
@@ -203,28 +352,36 @@
 </div>
 
 <script>
-    // Mostra la barra quando l'immagine hero esce dallo schermo
-    window.addEventListener('scroll', () => {
-        const heroHeight = document.querySelector('section').offsetHeight;
-        const stickyBar = document.getElementById('sticky-bar');
-        if (window.scrollY > heroHeight) {
-            stickyBar.classList.remove('translate-y-full');
-        } else {
-            stickyBar.classList.add('translate-y-full');
-        }
-    });
+    document.getElementById('fotovoltaicoForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Blocca il comportamento standard del form
 
-    // Funzione di validazione CAP
-    function validaEProcedi(inputElement) {
-        const cap = inputElement.value;
-        const regex = /^[0-9]{5}$/;
+        const form = e.target;
+        const submitBtn = document.getElementById('submitBtn');
         
-        if (regex.test(cap)) {
-            window.location.href = 'form.html?cap=' + cap;
-        } else {
-            alert("Per favore, inserisci un CAP valido di 5 cifre.");
-        }
-    }
+        // Disabilita il bottone per evitare doppi click
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Invio in corso...";
+
+        // Raccoglie i dati inseriti nei campi
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        // URL del Webhook di Zapier
+        const webhookUrl = 'https://hooks.zapier.com/hooks/catch/12462472/44en6b2/';
+
+        // Invia i dati a Zapier in background usando 'no-cors' per evitare blocchi del browser
+        fetch(webhookUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        }).finally(() => {
+            // Reindirizza l'utente alla pagina di ringraziamento dopo l'invio
+            window.location.href = 'thank-you.html';
+        });
+    });
 </script>
 
 </body>
