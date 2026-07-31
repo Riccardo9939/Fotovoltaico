@@ -20,6 +20,7 @@
     html {
         scroll-behavior: smooth;
     }
+
 </style>
 </head>
 
@@ -61,20 +62,20 @@
         </div>
     </header>
 
-<section id="modulo-cap" class="bg-[#51b86d] py-20 px-6">
+<section id="modulo-cap" class="bg-[#51b86d] py-10 px-6">
     <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
-        <!-- Lato Sinistra: Logo e Testo Istituzionale -->
-      <div class="text-white text-center">
-    <!-- Logo ingrandito, reso bianco e centrato -->
-    <img src="favicon.png" alt="Logo Aziendale" class="h-50 md:h-60 mx-auto mb-6 object-contain" style="filter: brightness(0) invert(1);" />
-    
-    <h2 class="text-3xl md:text-5xl font-black mb-4">Passa al Fotovoltaico</h2>
-    
-    <p class="text-white/90 text-lg leading-relaxed max-w-lg mx-auto">
-        Compila il modulo per richiedere una consulenza gratuita e scoprire tutte le agevolazioni fiscali attive per la tua casa.
-    </p>
-               <!-- TABELLA HTML PIÙ GRANDE -->
+        <!-- Lato Sinistra: Logo, Testo e Tabella (Spostato più in alto) -->
+        <div class="text-white text-center flex flex-col items-center">
+            <img src="favicon.png" alt="Logo Aziendale" class="h-36 md:h-44 mx-auto mb-3 object-contain" style="filter: brightness(0) invert(1);" />
+            
+            <h2 class="text-3xl md:text-5xl font-black mb-3">Passa al Fotovoltaico</h2>
+            
+            <p class="text-white/90 text-base md:text-lg leading-relaxed max-w-lg mx-auto mb-4">
+                Compila il modulo per richiedere una consulenza gratuita e scoprire tutte le agevolazioni fiscali attive per la tua casa.
+            </p>
+
+            <!-- TABELLA HTML PIÙ GRANDE -->
           <div class="w-full max-w-[540px] mx-auto mt-2 bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 shadow-lg">
     <table class="w-full text-left text-white text-base">
         <thead class="bg-white/20 uppercase text-xs tracking-wider">
@@ -100,7 +101,6 @@
     </table>
 </div>
         </div>
-</div>
 
         <!-- Lato Destra: Card del Form -->
         <div class="bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
@@ -118,14 +118,14 @@
                     <input type="text" name="citta" required placeholder="Inserisci la tua Città" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
                 </div>
 
-                <!-- CAP (Sostituito al fornitore: solo numeri, obbligatorio, max 5 cifre) -->
+                <!-- CAP -->
                 <div>
                     <label class="block text-xs font-bold text-gray-700 uppercase mb-1">CAP *</label>
                     <input type="text" required name="cap" placeholder="Es. 20121" maxlength="5" pattern="\d{5}" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
                 </div>
 
                 <!-- Telefono -->
-                 <div>
+                <div>
                     <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Telefono *</label>
                     <input type="text" required name="phone" placeholder="Inserisci il tuo numero" maxlength="10" pattern="\d{10}" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
                 </div>
@@ -409,6 +409,8 @@
         });
     });
 </script>
+
+
 
 </body>
 </html>
