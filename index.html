@@ -103,42 +103,51 @@
 </div>
         </div>
 
-        <!-- Lato Destra: Card del Form -->
-        <div class="max-w-4xl mx-auto bg-white border-2 border-[#51b86d] p-8 md:p-12 rounded-3xl shadow-xl text-center">
-        
-        <!-- Titolo Incisivo -->
-        <h2 class="text-2xl md:text-4xl font-black text-[#2c3e50] mb-6 leading-tight">
-            Hai già un preventivo per il fotovoltaico?
-        </h2>
-        
-        <p class="text-lg md:text-xl text-gray-700 font-bold mb-8">
-            Scopri se è davvero la scelta migliore con un <span class="text-[#51b86d]">Confronto Tecnico Professionale Gratuito.</span>
-        </p>
+  <!-- Lato Destra: Card del Form -->
+  <div class="bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
+            <form id="fotovoltaicoForm" class="space-y-5">
+                
+                <!-- Nome e Cognome -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nome e Cognome *</label>
+                    <input type="text" name="nome" required placeholder="Inserisci il tuo Nome e Cognome" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
+                </div>
 
-        <!-- Lista Benefici -->
-        <div class="grid md:grid-cols-2 gap-6 mb-10 text-left">
-            <div class="flex items-start gap-3">
-                <span class="text-2xl">📊</span>
-                <p class="text-gray-600"><strong class="text-[#2c3e50]">Analisi Energetica Professionale Gratuita:</strong> Con report tecnico personalizzato incluso.</p>
-            </div>
-            <div class="flex items-start gap-3">
-                <span class="text-2xl">🔍</span>
-                <p class="text-gray-600"><strong class="text-[#2c3e50]">Confronto Tecnico dei Preventivi:</strong> Analizziamo componenti, qualità e prestazioni reali.</p>
-            </div>
+                <!-- Città -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Città *</label>
+                    <input type="text" name="citta" required placeholder="Inserisci la tua Città" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
+                </div>
+
+                <!-- CAP -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">CAP *</label>
+                    <input type="text" required name="cap" placeholder="Es. 20121" maxlength="5" pattern="\d{5}" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
+                </div>
+
+                <!-- Telefono -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Telefono *</label>
+                    <input type="text" required name="phone" placeholder="Inserisci il tuo numero" maxlength="10" pattern="\d{10}" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
+                </div>
+
+                <!-- Privacy Policy -->
+                <div class="flex items-start space-x-3 pt-2">
+                    <input type="checkbox" required id="privacy" class="mt-1 w-4 h-4 text-[#51b86d] border-gray-300 rounded focus:ring-[#51b86d]" />
+                    <label for="privacy" class="text-[11px] text-gray-500 leading-tight">
+                        Ai sensi dell'art. 13 del Regolamento UE 679/2016 - "GDPR" autorizzo al trattamento dei dati per essere ricontattato e ricevere informazioni commerciali. Ho preso visione dell'informativa sulla privacy.
+                    </label>
+                </div>
+
+                <!-- Pulsante Invio -->
+                <button type="submit" id="submitBtn" class="w-full bg-[#51b86d] hover:bg-[#46a35f] text-white font-bold py-4 rounded-xl shadow-[0_10px_20px_rgba(81,184,109,0.3)] transition text-center cursor-pointer">
+                    Invia Richiesta
+                </button>
+
+            </form>
         </div>
 
-        <!-- Box Persuasivo -->
-        <div class="bg-[#2c3e50] p-6 rounded-2xl mb-8">
-            <p class="text-white text-lg md:text-xl font-medium italic">
-                "Non confrontiamo i prezzi. Confrontiamo la qualità, le prestazioni e il rendimento del tuo investimento."
-            </p>
-        </div>
-
-        <!-- Call to Action -->
-        <a href="#modulo-cap" class="inline-block bg-[#51b86d] hover:bg-[#46a35f] text-white font-bold py-4 px-10 rounded-xl shadow-lg transition text-lg">
-            Richiedi la tua Analisi Gratuita
-        </a>
-    </div>
+    </div>    
 </section>
 
 
@@ -175,7 +184,7 @@
 
       <!-- Pulsante Secondario (Scorrimento al modulo CAP) -->
       <a href="#modulo-cap" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-3.5 rounded-lg shadow-lg flex items-center justify-center gap-2 transition duration-200">
-        Richiedi Preventivo Gratuito ↓
+        Richiedi Preventivo Gratuito ↑
       </a>
     </div>
 
@@ -326,11 +335,11 @@
             <a href="#modulo-cap" class="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white border-2 border-white font-bold py-4 px-8 rounded-xl transition flex items-center justify-center space-x-2">
     <span>Compila il Modulo</span>
     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
     </svg>
 </a>
         </div>
-    </div>
+    </div> 
 </section>
 
 
@@ -361,7 +370,7 @@
                 <td class="py-4 px-5 font-semibold text-lg border-r border-white/20">3 kW + 5kW di Accumolo</td>
                 <td class="py-4 px-5 text-right font-black text-lg text-white">8.000 €</td>
             </tr>
-            <tr class="hover:bg-white/5 transition">
+            <tr class="hover:bg-white/5 transition">  
                 <td class="py-4 px-5 font-semibold text-lg border-r border-white/20">6 kW + 10kW di Accumolo</td>
                 <td class="py-4 px-5 text-right font-black text-lg text-white">12.000 €</td>
             </tr>
@@ -374,50 +383,41 @@
 </div>
         </div>
 
-        <!-- Lato Destra: Card del Form -->
-        <div class="bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
-            <form id="fotovoltaicoForm" class="space-y-5">
-                
-                <!-- Nome e Cognome -->
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nome e Cognome *</label>
-                    <input type="text" name="nome" required placeholder="Inserisci il tuo Nome e Cognome" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
-                </div>
 
-                <!-- Città -->
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Città *</label>
-                    <input type="text" name="citta" required placeholder="Inserisci la tua Città" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
-                </div>
+<div class="max-w-4xl mx-auto bg-white border-2 border-[#51b86d] p-8 md:p-12 rounded-3xl shadow-xl text-center">
+        
+        <!-- Titolo Incisivo -->
+        <h2 class="text-2xl md:text-4xl font-black text-[#2c3e50] mb-6 leading-tight">
+            Hai già un preventivo per il fotovoltaico?
+        </h2>
+        
+        <p class="text-lg md:text-xl text-gray-700 font-bold mb-8">
+            Scopri se è davvero la scelta migliore con un <span class="text-[#51b86d]">Confronto Tecnico Professionale Gratuito.</span>
+        </p>
 
-                <!-- CAP -->
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">CAP *</label>
-                    <input type="text" required name="cap" placeholder="Es. 20121" maxlength="5" pattern="\d{5}" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
-                </div>
-
-                <!-- Telefono -->
-                <div>
-                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Telefono *</label>
-                    <input type="text" required name="phone" placeholder="Inserisci il tuo numero" maxlength="10" pattern="\d{10}" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
-                </div>
-
-                <!-- Privacy Policy -->
-                <div class="flex items-start space-x-3 pt-2">
-                    <input type="checkbox" required id="privacy" class="mt-1 w-4 h-4 text-[#51b86d] border-gray-300 rounded focus:ring-[#51b86d]" />
-                    <label for="privacy" class="text-[11px] text-gray-500 leading-tight">
-                        Ai sensi dell'art. 13 del Regolamento UE 679/2016 - "GDPR" autorizzo al trattamento dei dati per essere ricontattato e ricevere informazioni commerciali. Ho preso visione dell'informativa sulla privacy.
-                    </label>
-                </div>
-
-                <!-- Pulsante Invio -->
-                <button type="submit" id="submitBtn" class="w-full bg-[#51b86d] hover:bg-[#46a35f] text-white font-bold py-4 rounded-xl shadow-[0_10px_20px_rgba(81,184,109,0.3)] transition text-center cursor-pointer">
-                    Invia Richiesta
-                </button>
-
-            </form>
+        <!-- Lista Benefici -->
+        <div class="grid md:grid-cols-2 gap-6 mb-10 text-left">
+            <div class="flex items-start gap-3">
+                <span class="text-2xl">📊</span>
+                <p class="text-gray-600"><strong class="text-[#2c3e50]">Analisi Energetica Professionale Gratuita:</strong> Con report tecnico personalizzato incluso.</p>
+            </div>
+            <div class="flex items-start gap-3">
+                <span class="text-2xl">🔍</span>
+                <p class="text-gray-600"><strong class="text-[#2c3e50]">Confronto Tecnico dei Preventivi:</strong> Analizziamo componenti, qualità e prestazioni reali.</p>
+            </div>
         </div>
 
+        <!-- Box Persuasivo -->
+        <div class="bg-[#2c3e50] p-6 rounded-2xl mb-8">
+            <p class="text-white text-lg md:text-xl font-medium italic">
+                "Non confrontiamo i prezzi. Confrontiamo la qualità, le prestazioni e il rendimento del tuo investimento."
+            </p>
+        </div>
+
+        <!-- Call to Action -->
+        <a href="#modulo-cap" class="inline-block bg-[#51b86d] hover:bg-[#46a35f] text-white font-bold py-4 px-10 rounded-xl shadow-lg transition text-lg">
+            Richiedi la tua Analisi Gratuita
+        </a>
     </div>
 </section>
 
