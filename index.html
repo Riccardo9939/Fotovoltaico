@@ -150,8 +150,79 @@
     </div>    
 </section>
 
+<!-- Sezione Loghi e Certificazioni: Scorrimento a 3 Blocchi (Fluido al 100%) -->
+<section class="bg-white py-14 border-t border-gray-100 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 text-center mb-8">
+        <p class="text-xs font-bold tracking-widest text-gray-400 uppercase">
+            Installatori Certificati & Partner Ufficiali
+        </p>
+    </div>
 
+    <!-- Contenitore dello Slider -->
+    <div class="relative w-full flex overflow-x-hidden">
+        <!-- Sfumature ai lati -->
+        <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
+        <!-- Traccia che scorre -->
+        <div id="logo-track" class="flex items-center whitespace-nowrap will-change-transform">
+            
+            <!-- LISTA LOGHI 1 (Originale) -->
+            <div id="logo-original" class="flex items-center shrink-0">
+                <div class="px-8 flex items-center justify-center"><img src="images.png" alt="FER" class="h-20 md:h-24 w-auto object-contain"></div>
+                <div class="px-8 flex items-center justify-center"><img src="images-2.png" alt="ISO 9001" class="h-20 md:h-24 w-auto object-contain"></div>
+                <div class="px-8 flex items-center justify-center"><img src="images-3.png" alt="ISO 45001" class="h-20 md:h-24 w-auto object-contain"></div>
+                <div class="px-8 flex items-center justify-center"><img src="huawei_logo.png" alt="Huawei" class="h-14 md:h-16 w-auto object-contain"></div>
+                <div class="px-8 flex items-center justify-center"><img src="images-1.png" alt="Sungrow" class="h-14 md:h-16 w-auto object-contain"></div>
+                <div class="px-8 flex items-center justify-center"><img src="images.jpg" alt="Jinko Solar" class="h-14 md:h-16 w-auto object-contain"></div>
+            </div>
+
+            <!-- LISTA LOGHI 2 (Prima Copia) -->
+            <div class="flex items-center shrink-0">
+                <div class="px-8 flex items-center justify-center"><img src="images.png" alt="FER" class="h-20 md:h-24 w-auto object-contain"></div>
+                <div class="px-8 flex items-center justify-center"><img src="images-2.png" alt="ISO 9001" class="h-20 md:h-24 w-auto object-contain"></div>
+                <div class="px-8 flex items-center justify-center"><img src="images-3.png" alt="ISO 45001" class="h-20 md:h-24 w-auto object-contain"></div>
+                <div class="px-8 flex items-center justify-center"><img src="huawei_logo.png" alt="Huawei" class="h-14 md:h-16 w-auto object-contain"></div>
+                <div class="px-8 flex items-center justify-center"><img src="images-1.png" alt="Sungrow" class="h-14 md:h-16 w-auto object-contain"></div>
+                <div class="px-8 flex items-center justify-center"><img src="images.jpg" alt="Jinko Solar" class="h-14 md:h-16 w-auto object-contain"></div>
+            </div>
+
+            <!-- LISTA LOGHI 3 (Seconda Copia per sicurezza totale sul loop) -->
+            <div class="flex items-center shrink-0">
+                <div class="px-8 flex items-center justify-center"><img src="images.png" alt="FER" class="h-20 md:h-24 w-auto object-contain"></div>
+                <div class="px-8 flex items-center justify-center"><img src="images-2.png" alt="ISO 9001" class="h-20 md:h-24 w-auto object-contain"></div>
+                <div class="px-8 flex items-center justify-center"><img src="images-3.png" alt="ISO 45001" class="h-20 md:h-24 w-auto object-contain"></div>
+                <div class="px-8 flex items-center justify-center"><img src="huawei_logo.png" alt="Huawei" class="h-14 md:h-16 w-auto object-contain"></div>
+                <div class="px-8 flex items-center justify-center"><img src="images-1.png" alt="Sungrow" class="h-14 md:h-16 w-auto object-contain"></div>
+                <div class="px-8 flex items-center justify-center"><img src="images.jpg" alt="Jinko Solar" class="h-14 md:h-16 w-auto object-contain"></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Stile e Script -->
+<style>
+@keyframes scrollTriple {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(var(--scroll-width)); }
+}
+#logo-track {
+    animation: scrollTriple 20s linear infinite;
+}
+</style>
+
+<script>
+window.addEventListener("load", () => {
+    const originalBlock = document.getElementById("logo-original");
+    const track = document.getElementById("logo-track");
+    if (originalBlock && track) {
+        // Muove esattamente della larghezza di un singolo blocco, sfruttando gli altri due come scorta invisibile
+        const width = originalBlock.offsetWidth;
+        track.style.setProperty("--scroll-width", `-${width}px`);
+    }
+});
+</script>
 
 <section class="relative w-full min-h-[700px] flex items-center justify-center py-20">
   <img src="tetto-fotovoltaico.jpg" alt="Pannelli solari" class="absolute inset-0 w-full h-full object-cover" />
