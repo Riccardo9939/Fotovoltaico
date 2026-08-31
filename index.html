@@ -63,75 +63,88 @@
     </header>
 
 
-<section id="preventivo" class="bg-[#51b86d] py-10 px-6">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<section id="preventivo" class="relative py-16 px-6 bg-cover bg-center overflow-hidden" style="background-image: url('pannelli_tetto.jpeg');">
+    
+    <!-- Overlay scuro con sfocatura regolabile (es. blur(4px)) -->
+    <div class="absolute inset-0 bg-black/40" style="backdrop-filter: blur(3px);"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
-        <!-- Lato Sinistra: Logo, Testo e Tabella (Spostato più in alto) -->
+        <!-- Lato Sinistra: Testi, Sottotitolo, Descrizione e Tabella -->
         <div class="text-white text-center flex flex-col items-center">
-            <img src="favicon.png" alt="Logo Aziendale" class="h-36 md:h-44 mx-auto mb-3 object-contain" style="filter: brightness(0) invert(1);" />
             
-            <h2 class="text-3xl md:text-5xl font-black mb-3">Passa al Fotovoltaico</h2>
+            <!-- Titolo Principale -->
+            <h2 class="text-3xl md:text-5xl font-black mb-2">Passa al Fotovoltaico</h2>
             
-            <p class="text-white/90 text-base md:text-lg leading-relaxed max-w-lg mx-auto mb-4">
+            <!-- Sottotitolo -->
+            <p class="text-lg md:text-xl font-bold text-[#51b86d] mb-3 uppercase tracking-wide">
+                Preventivi pannelli solari Gratis
+            </p>
+           
+            <p class="text-sm md:text-xl font-bold text-[#51b86d] tracking-wide mb-3 whitespace-nowrap">
+                |
+            </p>
+
+            <p class="text-sm md:text-xl font-bold text-[#51b86d] tracking-wide mb-3 whitespace-nowrap">
+                RISPARMIA IN BOLLETTA FINO AL 90%
+            </p>
+            
+            <!-- Descrizione -->
+            <p class="text-white/90 text-base md:text-lg leading-relaxed max-w-lg mx-auto mb-6">
                 Compila il modulo per richiedere una consulenza gratuita e scoprire tutte le agevolazioni fiscali attive per il tuo immobile.
             </p>
 
-            <!-- TABELLA HTML PIÙ GRANDE -->
-          <div class="w-full max-w-[540px] mx-auto mt-2 bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 shadow-lg">
-    <table class="w-full text-left text-white text-base">
-        <thead class="bg-white/20 uppercase text-xs tracking-wider">
-            <tr>
-                <th class="py-4 px-5 font-bold border-r border-white/20">Dimensione impianto fotovoltaico</th>
-                <th class="py-4 px-5 font-bold text-right">Prezzo (iva inclusa)</th>
-            </tr>
-        </thead>
-        <tbody class="divide-y divide-white/10">
-            <tr class="hover:bg-white/5 transition">
-                <td class="py-4 px-5 font-semibold text-lg border-r border-white/20">3 kW + 5kW di Accumolo</td>
-                <td class="py-4 px-5 text-right font-black text-lg text-white">8.000 €</td>
-            </tr>
-            <tr class="hover:bg-white/5 transition">
-                <td class="py-4 px-5 font-semibold text-lg border-r border-white/20">6 kW + 10kW di Accumolo</td>
-                <td class="py-4 px-5 text-right font-black text-lg text-white">12.000 €</td>
-            </tr>
-            <tr class="hover:bg-white/5 transition">
-                <td class="py-4 px-5 font-semibold text-lg border-r border-white/20">9 kW + 15kW di Accumolo</td>
-                <td class="py-4 px-5 text-right font-black text-lg text-white">15.000 €</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+            <!-- TABELLA HTML (Spostata sotto) -->
+            <div class="w-full max-w-[540px] mx-auto bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 shadow-lg">
+                <table class="w-full text-left text-white text-base">
+                    <thead class="bg-white/20 uppercase text-xs tracking-wider">
+                        <tr>
+                            <th class="py-4 px-5 font-bold border-r border-white/20">Dimensione impianto fotovoltaico</th>
+                            <th class="py-4 px-5 font-bold text-right">Prezzo (iva inclusa)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/10">
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="py-4 px-5 font-semibold text-lg border-r border-white/20">3 kW + 5kW di Accumolo</td>
+                            <td class="py-4 px-5 text-right font-black text-lg text-white">8.000 €</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="py-4 px-5 font-semibold text-lg border-r border-white/20">6 kW + 10kW di Accumolo</td>
+                            <td class="py-4 px-5 text-right font-black text-lg text-white">12.000 €</td>
+                        </tr>
+                        <tr class="hover:bg-white/5 transition">
+                            <td class="py-4 px-5 font-semibold text-lg border-r border-white/20">9 kW + 15kW di Accumolo</td>
+                            <td class="py-4 px-5 text-right font-black text-lg text-white">15.000 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-  <!-- Lato Destra: Card del Form -->
-  <div class="bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
+        <!-- Lato Destra: Card del Form (Invariata) -->
+        <div class="bg-white rounded-3xl p-8 md:p-10 shadow-2xl">
             <form id="fotovoltaicoForm" class="space-y-5">
                 
-                <!-- Nome e Cognome -->
                 <div>
                     <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nome e Cognome *</label>
                     <input type="text" name="nome" required placeholder="Inserisci il tuo Nome e Cognome" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
                 </div>
 
-                <!-- Città -->
                 <div>
                     <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Città *</label>
                     <input type="text" name="citta" required placeholder="Inserisci la tua Città" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
                 </div>
 
-                <!-- CAP -->
                 <div>
                     <label class="block text-xs font-bold text-gray-700 uppercase mb-1">CAP *</label>
                     <input type="text" required name="cap" placeholder="Es. 20121" maxlength="5" pattern="\d{5}" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
                 </div>
 
-                <!-- Telefono -->
                 <div>
-                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Telefono *</label>
+                    <label class="label block text-xs font-bold text-gray-700 uppercase mb-1">Telefono *</label>
                     <input type="text" required name="phone" placeholder="Inserisci il tuo numero" maxlength="10" pattern="\d{10}" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#51b86d] focus:ring-2 focus:ring-[#51b86d]/20 outline-none transition text-gray-700 text-sm" />
                 </div>
 
-                <!-- Privacy Policy -->
                 <div class="flex items-start space-x-3 pt-2">
                     <input type="checkbox" required id="privacy" class="mt-1 w-4 h-4 text-[#51b86d] border-gray-300 rounded focus:ring-[#51b86d]" />
                     <label for="privacy" class="text-[11px] text-gray-500 leading-tight">
@@ -139,7 +152,6 @@
                     </label>
                 </div>
 
-                <!-- Pulsante Invio -->
                 <button type="submit" id="submitBtn" class="w-full bg-[#51b86d] hover:bg-[#46a35f] text-white font-bold py-4 rounded-xl shadow-[0_10px_20px_rgba(81,184,109,0.3)] transition text-center cursor-pointer">
                     Richiedi il Preventivo Gratuito
                 </button>
@@ -433,7 +445,7 @@ window.addEventListener("load", () => {
         <thead class="bg-white/20 uppercase text-xs tracking-wider">
             <tr>
                 <th class="py-4 px-5 font-bold border-r border-white/20">Dimensione impianto fotovoltaico</th>
-                <th class="py-4 px-5 font-bold text-right">Prezzo (iva inclusa)</th>
+                <th class="py-4 px-5 font-bold text-right">Prezzo</th>
             </tr>
         </thead>
         <tbody class="divide-y divide-white/10">
